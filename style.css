@@ -1,0 +1,172 @@
+/* standards ________________________________________________________________*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  outline: none;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+
+  /* outline: 1px solid red; */
+}
+:root {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --black010: rgba(0, 0, 0, 0.1);
+  --black050: rgba(0, 0, 0, 0.5);
+  --gray010: rgba(128, 128, 128, 0.1);
+  --gray050: rgba(128, 128, 128, 0.5);
+  --white010: rgba(255, 255, 255, 0.1);
+  --white050: rgba(255, 255, 255, 0.5);
+  --accent: lightsteelblue;
+  --shadow: 0 0 0.5rem var(--black050);
+  --dark-bg-color: rgb(33, 33, 33);
+  --dark-color: rgb(222, 222, 222);
+  background-color: var(--dark-bg-color);
+  color: var(--dark-color);
+}
+/* elements _________________________________________________________________*/
+button {
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+  /* padding: 0 1rem; */
+  border-radius: 1rem;
+}
+button:hover,
+button:focus {
+  outline: 2px solid;
+}
+.button {
+  outline: 1px solid;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1.5rem;
+  /* font-weight: 900; */
+}
+hr {
+  border: 1px solid;
+  width: 100%;
+}
+img {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+/* segments _________________________________________________________________*/
+
+button {
+  padding: 0.25rem 0.25rem 0;
+  > i {
+    font-size: 1.5rem !important;
+  }
+}
+body {
+  max-width: 1024px;
+  position: relative;
+}
+
+.background {
+  position: absolute;
+  background-color: darkred;
+  width: 100%;
+  height: 10%;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+}
+
+section.first {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+
+  > * {
+    z-index: 1;
+  }
+  .firstImage {
+    position: relative;
+    > h1 {
+      z-index: 2;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      font-size: 2.5rem;
+      color: var(--dark-bg-color);
+    }
+  }
+  > .aboutMe {
+    background-color: var(--dark-bg-color);
+    box-shadow: var(--shadow);
+    padding: 1rem;
+    > * {
+      margin: 0.5rem;
+    }
+    > button {
+      float: inline-end;
+    }
+  }
+}
+
+section.second {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  > h2 {
+    padding: 1rem;
+  }
+
+  > .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    padding: 1rem;
+    gap: 1rem;
+
+    > .card {
+      box-shadow: var(--shadow);
+      > .text {
+        padding: 1rem 0.5rem;
+        > h3 > button {
+          float: inline-end;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  gap: 1rem;
+
+  background-color: darkred;
+  > .contactMe > * {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  section.first,
+  footer {
+    flex-direction: row;
+    > img {
+      width: 40%;
+    }
+  }
+  img {
+    aspect-ratio: 4/3;
+  }
+}
